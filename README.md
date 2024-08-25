@@ -1,8 +1,7 @@
-# hand-gesture-recognition-using-mediapipe
-Estimate hand pose using MediaPipe (Python version).<br> This is a sample 
+# Integrate with hand-gesture-recognition -using-mediapipe
+Estimate hand pose using MediaPipe and Yolov8 (Python version).<br> This is a sample 
 program that recognizes hand signs and finger gestures with a simple MLP using the detected key points.
-<br> ❗ _️**This is English Translated version of the [original repo](https://github.com/Kazuhito00/hand-gesture-recognition-using-mediapipe). All Content is translated to english along with comments and notebooks**_ ❗
-<br> 
+
 ![mqlrf-s6x16](https://user-images.githubusercontent.com/37477845/102222442-c452cd00-3f26-11eb-93ec-c387c98231be.gif)
 
 This repository contains the following contents.
@@ -11,6 +10,7 @@ This repository contains the following contents.
 * Finger gesture recognition model(TFLite)
 * Learning data for hand sign recognition and notebook for learning
 * Learning data for finger gesture recognition and notebook for learning
+* Learning data for hand detection with objects integrating with mediapipe and Yolov8.
 
 # Requirements
 * mediapipe 0.8.1
@@ -18,6 +18,7 @@ This repository contains the following contents.
 * Tensorflow 2.3.0 or Later<br>tf-nightly 2.5.0.dev or later (Only when creating a TFLite for an LSTM model)
 * scikit-learn 0.23.2 or Later (Only if you want to display the confusion matrix) 
 * matplotlib 3.3.2 or Later (Only if you want to display the confusion matrix)
+* Yolov8 object detection model.
 
 # Demo
 Here's how to run the demo using your webcam.
@@ -59,10 +60,6 @@ Tracking confidence threshold (Default：0.5)
 └─utils
     └─cvfpscalc.py
 </pre>
-### app.py
-This is a sample program for inference.<br>
-In addition, learning data (key points) for hand sign recognition,<br>
-You can also collect training data (index finger coordinate history) for finger gesture recognition.
 
 ### keypoint_classification.ipynb
 This is a model training script for hand sign recognition.
@@ -116,16 +113,14 @@ The image of the model prepared in "[keypoint_classification.ipynb](keypoint_cla
 
 ### Finger gesture recognition training
 #### 1.Learning data collection
-Press "h" to enter the mode to save the history of fingertip coordinates (displayed as "MODE:Logging Point History").<br>
-<img src="https://user-images.githubusercontent.com/37477845/102249074-4d78fc80-3f45-11eb-9c1b-3eb975798871.jpg" width="60%"><br><br>
+Press "h" to enter the mode to save the history of fingertip coordinates (displayed as "MODE:Logging Point History").
 If you press "0" to "9", the key points will be added to "model/point_history_classifier/point_history.csv" as shown below.<br>
 1st column: Pressed number (used as class ID), 2nd and subsequent columns: Coordinate history<br>
 <img src="https://user-images.githubusercontent.com/37477845/102345850-54ede380-3fe1-11eb-8d04-88e351445898.png" width="80%"><br><br>
 The key point coordinates are the ones that have undergone the following preprocessing up to ④.<br>
 <img src="https://user-images.githubusercontent.com/37477845/102244148-49e27700-3f3f-11eb-82e2-fc7de42b30fc.png" width="80%"><br><br>
 In the initial state, 4 types of learning data are included: stationary (class ID: 0), clockwise (class ID: 1), counterclockwise (class ID: 2), and moving (class ID: 4). <br>
-If necessary, add 5 or later, or delete the existing data of csv to prepare the training data.<br>
-<img src="https://user-images.githubusercontent.com/37477845/102350939-02b0c080-3fe9-11eb-94d8-54a3decdeebc.jpg" width="20%">　<img src="https://user-images.githubusercontent.com/37477845/102350945-05131a80-3fe9-11eb-904c-a1ec573a5c7d.jpg" width="20%">　<img src="https://user-images.githubusercontent.com/37477845/102350951-06444780-3fe9-11eb-98cc-91e352edc23c.jpg" width="20%">　<img src="https://user-images.githubusercontent.com/37477845/102350942-047a8400-3fe9-11eb-9103-dbf383e67bf5.jpg" width="20%">
+If necessary, add 5 or later, or delete the existing data of csv to prepare the training data.
 
 #### 2.Model training
 Open "[point_history_classification.ipynb](point_history_classification.ipynb)" in Jupyter Notebook and execute from top to bottom.<br>
@@ -141,10 +136,7 @@ The model using "LSTM" is as follows. <br>Please change "use_lstm = False" to "T
 * [MediaPipe](https://mediapipe.dev/)
 
 # Author
-Kazuhito Takahashi(https://twitter.com/KzhtTkhs)
-
-# Translation and other improvements
-Nikita Kiselov(https://github.com/kinivi)
+Than Than Swe
  
 # License 
-hand-gesture-recognition-using-mediapipe is under [Apache v2 license](LICENSE).
+Integrate with hand-gesture-recognition-using-mediapipe and Yolov8 model for object detection is under [Apache v2 license](LICENSE).
