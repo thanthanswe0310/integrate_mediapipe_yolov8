@@ -2,7 +2,7 @@
 Estimate hand pose using MediaPipe and Yolov8 (Python version).<br> This is a sample 
 program that recognizes hand signs and finger gestures with a simple MLP using the detected key points.
 
-![mqlrf-s6x16](https://user-images.githubusercontent.com/37477845/102222442-c452cd00-3f26-11eb-93ec-c387c98231be.gif)
+![mqlrf-s6x16] https://photos.google.com/photo/AF1QipN0ze0CNqM9cZzAA_o388wa7mIDx7pbeWVsFwi4
 
 This repository contains the following contents.
 * Sample program
@@ -13,7 +13,7 @@ This repository contains the following contents.
 * Learning data for hand detection with objects integrating with mediapipe and Yolov8.
 
 # Requirements
-* mediapipe 0.8.1
+* mediapipe 0.8.1 and Yolov8 model.
 * OpenCV 3.4.2 or Later
 * Tensorflow 2.3.0 or Later<br>tf-nightly 2.5.0.dev or later (Only when creating a TFLite for an LSTM model)
 * scikit-learn 0.23.2 or Later (Only if you want to display the confusion matrix) 
